@@ -17,9 +17,10 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    color: #222;
+    color: #333;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.42857143;
+    font-family: Raleway, Helvetica, sans-serif;
   }
 
   button {

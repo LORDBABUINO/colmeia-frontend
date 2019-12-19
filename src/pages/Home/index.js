@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-import { Container } from './styles'
+import Professor from '../../components/Professor'
 import api from '../../services/api'
+
+import { Container } from './styles'
 
 export default function Home() {
   const [professors, setProfessors] = useState([])
@@ -11,12 +13,11 @@ export default function Home() {
       setProfessors(data)
     })()
   }, [])
-  console.log({ professors })
   return (
     <Container>
       <ul>
-        {professors.map(({ objectId, nome }) => (
-          <li key={objectId}>{nome}</li>
+        {professors.map(professor => (
+          <Professor key={professor.objectId} data={professor} />
         ))}
       </ul>
     </Container>
