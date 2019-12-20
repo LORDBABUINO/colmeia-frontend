@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdStar } from 'react-icons/md'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
@@ -14,10 +14,35 @@ import {
 } from './styles'
 
 export default function Professor({ data }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  function handleResize() {
+    setWindowWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <Container>
       <Image src={data.imagem} alt="Pessoa" />
-      <HeaderDetails>{data.nome}</HeaderDetails>
+      <HeaderDetails>
+        <h2>{data.nome}</h2>
+        {windowWidth > 768 && (
+          <>
+            <p>disciplinas:</p>
+            <ul>
+              {data.materia.map(diciplina => (
+                <li>{diciplina}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </HeaderDetails>
       <Note>
         {data.nota.toFixed(2)}
         <MdStar color="#f9b21b" size={20} />
