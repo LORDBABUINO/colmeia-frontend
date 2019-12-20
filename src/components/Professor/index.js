@@ -1,4 +1,6 @@
 import React from 'react'
+import { MdStar } from 'react-icons/md'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 
 import {
   Container,
@@ -16,10 +18,16 @@ export default function Professor({ data }) {
     <Container>
       <Image src={data.imagem} alt="Pessoa" />
       <HeaderDetails>{data.nome}</HeaderDetails>
-      <Note>{data.nota.toFixed(2)}</Note>
+      <Note>
+        {data.nota.toFixed(2)}
+        <MdStar color="#f9b21b" size={20} />
+      </Note>
       <CurriculumTitle>currículo</CurriculumTitle>
       <CurriculumBody>{data.curriculo}</CurriculumBody>
-      <Place>{data.bairro}</Place>
+      <Place>
+        <FaMapMarkerAlt color="#e3e3e3" size={19} />
+        {data.bairro}
+      </Place>
       <Button>selecionar</Button>
     </Container>
   )

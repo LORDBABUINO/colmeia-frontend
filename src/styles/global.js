@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -10,10 +12,11 @@ export default createGlobalStyle`
 
   html, body, #root {
     min-height: 100%;
+    background-color: #e3e3e3;
   }
 
   body {
-    -webkit-font-smoothing: antialiased !important
+    -webkit-font-smoothing: antialiased !important;
   }
 
   body, input, button {

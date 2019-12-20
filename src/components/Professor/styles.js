@@ -7,6 +7,7 @@ export const Container = styled.li`
   padding: 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   margin: 0 15px 20px;
+  background-color: white;
 `
 export const Header = styled.div``
 export const Image = styled.img`
@@ -32,6 +33,11 @@ export const Note = styled.div`
   font-size: 16px;
   margin-right: 5px;
   color: #989898;
+
+  svg {
+    vertical-align: middle;
+    margin-left: 5px;
+  }
 `
 export const CurriculumTitle = styled.div`
   position: relative;
@@ -39,6 +45,7 @@ export const CurriculumTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   margin: 30px 0 25px 10px;
+  color: #f9b21b;
 
   :before {
     content: '';
@@ -54,14 +61,25 @@ export const CurriculumTitle = styled.div`
 export const CurriculumBody = styled.div`
   font-size: 16px;
   color: #8b8b8b;
+  margin-bottom: 30px;
 `
 export const Place = styled.div`
   display: inline-block;
+  color: #303030;
+
+  svg {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
 `
 export const Button = styled.button`
   display: inline-block;
   float: right;
   text-transform: capitalize;
+  color: #ff8008;
+  font-weight: 700;
+  background-color: white;
+  border: none;
 
   :after {
     content: '›';
