@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { MdStar } from 'react-icons/md'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
@@ -56,4 +57,15 @@ export default function Teacher({ data }) {
       <Button>selecionar</Button>
     </Container>
   )
+}
+
+Teacher.propTypes = {
+  data: PropTypes.shape({
+    nome: PropTypes.string,
+    imagem: PropTypes.string,
+    materia: PropTypes.arrayOf(PropTypes.string),
+    nota: PropTypes.number,
+    curriculo: PropTypes.string,
+    bairro: PropTypes.string,
+  }).isRequired,
 }
