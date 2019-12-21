@@ -13,7 +13,7 @@ import {
   Button,
 } from './styles'
 
-export default function Professor({ data }) {
+export default function Teacher({ data }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   function handleResize() {
@@ -37,7 +37,7 @@ export default function Professor({ data }) {
             <p>disciplinas:</p>
             <ul>
               {data.materia.map(diciplina => (
-                <li>{diciplina}</li>
+                <li key={diciplina}>{diciplina}</li>
               ))}
             </ul>
           </>

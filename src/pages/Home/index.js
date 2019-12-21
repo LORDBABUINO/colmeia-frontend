@@ -1,23 +1,45 @@
 import React, { useState, useEffect } from 'react'
+import { FaSpinner } from 'react-icons/fa'
 
-import Professor from '../../components/Professor'
+import Teacher from '../../components/Teacher'
 import api from '../../services/api'
 
-import { List } from './styles'
+import { List, Search, Label } from './styles'
 
 export default function Home() {
-  const [professors, setProfessors] = useState([])
+  const [teachers, setTeachers] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     ;(async () => {
-      const { data } = await api.get('/professors')
-      setProfessors(data)
+      setLoading(true)
+      const { data } = await api.get('/teachers', {
+        params: {
+          name: searchTerm,
+        },
+      })
+      setTeachers(data)
+      setLoading(false)
     })()
-  }, [])
+  }, [searchTerm])
+
   return (
-    <List>
-      {professors.map(professor => (
-        <Professor key={professor.objectId} data={professor} />
-      ))}
-    </List>
+    <>
+      <Label>nome</Label>
+      <Search
+        onChange={({ target: { value } }) => setSearchTerm(value)}
+        value={searchTerm}
+      />
+      <List>
+        {loading ? (
+          <FaSpinner />
+        ) : (
+          teachers.map(teacher => (
+            <Teacher key={teacher.objectId} data={teacher} />
+          ))
+        )}
+      </List>
+    </>
   )
 }
