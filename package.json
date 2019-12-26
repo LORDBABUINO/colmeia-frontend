@@ -6,6 +6,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --roots='__tests__'",
+    "coverage": "yarn test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -14,7 +15,12 @@
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
-    ]
+    ],
+    "collectCoverageFrom": [
+      "!src/services/api.js",
+      "!src/styles/*.js"
+    ],
+    "coverageDirectory": "__tests__/coverage"
   },
   "dependencies": {
     "axios": "^0.19.0",
