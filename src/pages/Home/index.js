@@ -26,8 +26,9 @@ export default function Home() {
 
   return (
     <>
-      <Label>nome</Label>
+      <Label htmlFor="name">nome</Label>
       <Search
+        id="name"
         onChange={({ target: { value } }) => setSearchTerm(value)}
         value={searchTerm}
       />
