@@ -22,3 +22,9 @@ Inside `.env` file, set the value of `REACT_APP_API_URL` to the colmeia backend 
 ## Usage
 
 You can run it by running `yarn start` inside it's folder.
+
+## Test
+
+```bash
+$ yarn test
+```
