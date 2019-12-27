@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  act,
-  render,
-  fireEvent,
-  waitForElement,
-  wait,
-} from '@testing-library/react'
+import { render, fireEvent, waitForElement, wait } from '@testing-library/react'
 
 import api from '../../src/services/api'
 import Home from '../../src/pages/Home'
